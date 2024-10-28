@@ -42,8 +42,11 @@ class SampleApp(Tk):
         
     
     def onSelection(self,event):
-        self.canvas.delete("all")      
-        match self.listBox.curselection():
+        #print(event)
+        self.canvas.delete("all")
+        sel=self.listBox.curselection()
+        print(sel)    
+        match sel:
             case (0,):
                 self.drawCircle()
             case (1,):

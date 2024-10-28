@@ -3,11 +3,11 @@ from tkinter import messagebox
 
 
 
-class SampleApp(Tk):
+class TestButtonClick(Tk):
     def __init__(self):
         super().__init__()
-        #self.resizable(False, False)
-        #self.title("Click button example")
+        self.resizable(False, False)
+        self.title("Click button example")
         self.geometry("400x300")     
         # Etiqueta
         self.label=Label(text="Etiqueta")         
@@ -28,7 +28,7 @@ class SampleApp(Tk):
 
        
 
-app = SampleApp()
+app = TestButtonClick()
 app.mainloop()
 
 

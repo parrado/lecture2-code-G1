@@ -12,7 +12,7 @@ class SampleApp(tk.Tk):
         text="Etiqueta en posición absoluta",       
         )
         
-        self.label.place(x=50, y=100)
+        self.label.place(x=200, y=10)
 
         # Botón
         self.end_button = tk.Button(text="Botón")

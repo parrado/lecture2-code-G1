@@ -2,7 +2,7 @@ from tkinter import *
 from random import random
 from math import cos,sin
 
-class SampleApp(Tk):
+class TestAnimation(Tk):
 
     def __init__(self):
         super().__init__()
@@ -19,8 +19,8 @@ class SampleApp(Tk):
 
         self.canvas=Canvas(bg='white')
         self.canvas.grid(row=4,column=0,rowspan=3,columnspan=2)
-        self.ball_delta_x=0
-        self.ball_delta_y=0
+        self.ball_vi_x=0
+        self.ball_vi_y=0
         self.ball_x=self.canvas.winfo_reqwidth()/2
         self.ball_y=self.canvas.winfo_reqheight()/2
         self.id=None
@@ -43,9 +43,10 @@ class SampleApp(Tk):
         
     
     def startAnimation(self):
-        if self.ball_delta_x==0 and self.ball_delta_y==0:
+        if self.ball_vi_x==0 and self.ball_vi_y==0:
             angle=random()*(3.141592654)/4.0+(3.141592654)/4.0
-            self.ball_delta_x,self.ball_delta_y=int(9*cos(angle)),-int(9*sin(angle))
+            vi=9
+            self.ball_vi_x,self.ball_vi_y=int(vi*cos(angle)),-int(vi*sin(angle))
        
        
         if self.isAnimating==False:
@@ -64,20 +65,20 @@ class SampleApp(Tk):
         if self.isAnimating:
 
             if self.ball_x>=(self.canvas.winfo_reqwidth()-10):
-                self.ball_delta_x=-self.ball_delta_x
+                self.ball_vi_x=-self.ball_vi_x
 
             if self.ball_x<=10:
-                self.ball_delta_x=-self.ball_delta_x
+                self.ball_vi_x=-self.ball_vi_x
 
             if self.ball_y>=(self.canvas.winfo_reqheight()-10):
-                self.ball_delta_y=-self.ball_delta_y
+                self.ball_vi_y=-self.ball_vi_y
 
             if self.ball_y<=10:
-                self.ball_delta_y=-self.ball_delta_y  
+                self.ball_vi_y=-self.ball_vi_y  
 
             
-            self.ball_x=self.ball_x+self.ball_delta_x
-            self.ball_y=self.ball_y+self.ball_delta_y
+            self.ball_x=self.ball_x+self.ball_vi_x
+            self.ball_y=self.ball_y+self.ball_vi_y
             self.drawBall()
             
             self.after(33,self.animate)
@@ -87,7 +88,7 @@ class SampleApp(Tk):
 
         
 
-app = SampleApp()
+app = TestAnimation()
 app.mainloop()
 
 
